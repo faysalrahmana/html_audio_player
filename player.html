@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Audio Player</title>
+    <style>
+        /* Audio player container */
+        .audio-player {
+            max-width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            background:  #FF0000;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        /* Audio player controls */
+        audio {
+            width: 100%;
+            outline: none;
+        }
+
+        /* Play and pause buttons */
+        .play-pause-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 5px;
+            cursor: pointer;
+        }
+
+        .play-pause-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .audio-player {
+                padding: 10px;
+            }
+
+            .play-pause-button {
+                padding: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="audio-player">
+        <audio controls controlsList="nodownload">
+            <source src="audio_URL" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        // JavaScript function to play/pause the audio
+        var audio = document.querySelector('audio');
+        var playPauseButton = document.querySelector('.play-pause-button');
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                playPauseButton.textContent = "Pause";
+            } else {
+                audio.pause();
+                playPauseButton.textContent = "Play";
+            }
+        }
+    </script>
+</body>
+</html>
